@@ -1,0 +1,14 @@
+# Patch to Rime schema
+# encoding: utf-8
+
+patch:
+  # 语言模型
+  "grammar/language": wanxiang-lts-zh-hans  # 从 https://github.com/amzxyz/RIME-LMDG/releases 下载，不需要后缀 .gram
+  "grammar/collocation_max_length": 8  #命中的最长词组
+  "grammar/collocation_min_length": 2  #命中的最短词组，搭配词频健全的词库时候应当最小值设为3避开2字高频词
+
+  # translator 内加载
+  "translator/contextual_suggestions": true  # #模型预测，假设模型里面有的四个字的词汇 现在智能 而首选组合 现在只能 当你输入 现在 上屏后下一次输入zhi neng就会输出，智能前提是没有权重更高的了，很明显这与你的预期“现在只能”不符。很明显实际上又要预测又要连续句子，放一起是很难优雅的。
+  "translator/max_homophones": 7
+  "translator/max_homographs": 7
+
